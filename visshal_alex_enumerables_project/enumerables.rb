@@ -76,10 +76,23 @@ class Array
         end
         result
     end
+
+    def my_join(separator = "")
+        result = ""
+        (0...self.length - 1).each do |index|
+            result += (self[index] + separator)
+        end
+        result += self[-1]
+    end
+
+    def my_reverse
+        result = []
+        self.each do |ele|
+            result.unshift(ele)
+        end
+        result
+    end
 end
 
-a = [ "a", "b", "c", "d" ]
-p a.my_rotate(2)      #=> ["c", "d", "a", "b"]
-p a.my_rotate(-3)     #=> ["b", "c", "d", "a"]
-p a.my_rotate(15)     #=> ["d", "a", "b", "c"]
-p a.my_rotate         #=> ["b", "c", "d", "a"]
+p [ "a", "b", "c" ].my_reverse   #=> ["c", "b", "a"]
+p [ 1 ].my_reverse               #=> [1]
