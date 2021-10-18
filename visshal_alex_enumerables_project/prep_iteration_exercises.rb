@@ -91,9 +91,20 @@ p [1, 3, 5].bubble_sort! { |num1, num2| num2 <=> num1 } #sort descending
 # words).
 
 def substrings(string)
+    result = []
+    (0...string.length).each do |i|
+      (i...string.length).each do |j|
+        result << string[i..j]
+      end
+    end
+    result
 end
 
+dictionary = ["cat","at","a"]
+
 def subwords(word, dictionary)
+  sub = substrings(word)
+  sub.select {|ele| dictionary.include?(ele)}
 end
 
 # ### Doubler
